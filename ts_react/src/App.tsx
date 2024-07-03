@@ -1,7 +1,17 @@
-import React from "react";
+import axios from "axios";
+import GetUserApi from "./component/Api/GetUserApi";
+import Form from "./component/Form/Form";
 
-function App() {
-  return <div className="App">df</div>;
-}
+const App = () => {
+  return (
+    <>
+      {/*-------------------- user api -----------------------------*/}
+      {/* <GetUserApi title="TypeScript Demo" /> */}
+
+      {/*------------------------ form -----------------------------*/}
+      <Form />
+    </>
+  );
+};
 
 export default App;
