@@ -6,7 +6,7 @@ export interface SignUpFormState {
   firstname: string;
   lastname: string;
   email: string;
-  password: string;
+  password: string | number;
 }
 
 const Form = () => {

@@ -1,6 +1,7 @@
 import "./list.css";
 import { SignUpFormState } from "./Form";
 import { FC, useEffect, useState } from "react";
+import { Eye, EyeOff, Pencil, Trash } from "lucide-react";
 
 interface listuser {
   show: SignUpFormState[];
@@ -9,6 +10,23 @@ interface listuser {
 }
 
 const List: FC<listuser> = ({ show, edithandler, deletehandler }) => {
+  // const [visible, setvisible] = useState(false);
+  const [visiblePasswordIndex, setVisiblePasswordIndex] = useState<
+    number | null
+  >(null);
+
+  const togglePasswordVisibility = (index: number) => {
+    setVisiblePasswordIndex(visiblePasswordIndex === index ? null : index);
+  };
+
+  // const showpassword = (id: number) => {
+  //   console.log("id", id);
+  //   setvisible(visible === id ? null : index);
+  // };
+
+  // const hidepassword = () => {
+  //   setvisible(false);
+  // };
   return (
     <>
       {show.length <= 0 ? (
@@ -35,28 +53,42 @@ const List: FC<listuser> = ({ show, edithandler, deletehandler }) => {
                         {item.firstname} {item.lastname}
                       </td>
                       <td>{item.email}</td>
-                      <td>{item.password}</td>
+                      <td className="d-flex justify-content-between align-items-center">
+                        {visiblePasswordIndex === index ? (
+                          <>
+                            <div>{item.password}</div>
+                            <div>
+                              <Eye
+                                onClick={() => togglePasswordVisibility(index)}
+                              />
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div>*******</div>
+                            <div>
+                              <EyeOff
+                                onClick={() => togglePasswordVisibility(index)}
+                              />
+                            </div>
+                          </>
+                        )}
+                      </td>
                       <td>
-                        <button
+                        <Pencil
+                          color="#05208a"
                           onClick={() => {
                             edithandler(index, item);
                           }}
-                          type="submit"
-                          className="btn btn-success "
-                        >
-                          edit
-                        </button>
+                        />
                       </td>
                       <td>
-                        <button
+                        <Trash
+                          color="#9d0606"
                           onClick={() => {
                             deletehandler(index);
                           }}
-                          type="submit"
-                          className="btn btn-danger "
-                        >
-                          delete
-                        </button>
+                        />
                       </td>
                     </tr>
                   );
