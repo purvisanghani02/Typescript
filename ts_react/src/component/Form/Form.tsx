@@ -21,12 +21,12 @@ const Form = () => {
   const [edit, setedit] = useState<number | null>(null);
   const [visible, setVisible] = useState<boolean>(false);
 
-  console.log("show", show);
+  // console.log("show", show);
 
   useEffect(() => {
     const showlistdata = localStorage.getItem("listdata");
     if (showlistdata) {
-      const normaldata: SignUpFormState[] = JSON.parse(showlistdata);
+      const normaldata = JSON.parse(showlistdata);
       setShow(normaldata);
     }
   }, []);

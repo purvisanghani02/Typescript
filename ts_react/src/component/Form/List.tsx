@@ -16,17 +16,10 @@ const List: FC<listuser> = ({ show, edithandler, deletehandler }) => {
   >(null);
 
   const togglePasswordVisibility = (index: number) => {
+    console.log("index", index);
     setVisiblePasswordIndex(visiblePasswordIndex === index ? null : index);
   };
 
-  // const showpassword = (id: number) => {
-  //   console.log("id", id);
-  //   setvisible(visible === id ? null : index);
-  // };
-
-  // const hidepassword = () => {
-  //   setvisible(false);
-  // };
   return (
     <>
       {show.length <= 0 ? (
