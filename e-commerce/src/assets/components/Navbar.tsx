@@ -45,6 +45,17 @@ const Navbar = () => {
                 Product
               </NavLink>
               <NavLink
+                to="/login"
+                style={{
+                  color: "inherit",
+                  textDecoration: "none",
+                  marginRight: 16,
+                  fontSize: "20px",
+                }}
+              >
+                Login
+              </NavLink>
+              <NavLink
                 to="/addproduct"
                 style={{
                   color: "inherit",
