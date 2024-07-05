@@ -1,0 +1,15 @@
+.information,
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+img {
+  max-width: 165px;
+  object-fit: cover;
+  margin-left: 40px;
+}
+.buttons {
+  margin-top: 20px;
+  height: 30px;
+}

@@ -19,6 +19,10 @@ const CustomCard: React.FC<CardData> = ({ Productdata }) => {
 
   const context = useCounter();
 
+  const Addproductitem = (item: Productdata, index: number) => {
+    context?.Addproduct(index, item);
+  };
+
   return (
     <>
       <Container style={{ marginTop: "70px" }} maxWidth="xl">
@@ -59,7 +63,7 @@ const CustomCard: React.FC<CardData> = ({ Productdata }) => {
                 <CardActions>
                   <Button
                     size="small"
-                    onClick={() => context?.Addproduct(index, item)}
+                    onClick={() => Addproductitem(item, index)}
                   >
                     Add to cart
                   </Button>

@@ -3,11 +3,13 @@ import CustomCard from "../components/CustomCard";
 import axios from "axios";
 
 export interface Productdata {
+  id?: number;
   title: string;
   description: string;
   price: number;
   image: string;
   rating: { rate: number; count: number };
+  quantity?: number | null;
 }
 
 const Product = () => {
